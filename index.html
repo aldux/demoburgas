@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Menú Interactivo 3D</title>
+    
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Model Viewer -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
+    
+    <!-- GSAP for Hero Animation -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+</head>
+<body>
+
+    <section class="willem-header is--loading is--hidden">
+        <div class="willem-loader">
+            <div class="willem__h1">
+                <div class="willem__h1-start">
+                    <span class="willem__letter">B</span>
+                    <span class="willem__letter">R</span>
+                    <span class="willem__letter">A</span>
+                    <span class="willem__letter">S</span>
+                    <span class="willem__letter">S</span>
+                </div>
+                <div class="willem-loader__box">
+                    <div class="willem-loader__box-inner">
+                        <div class="willem__growing-image">
+                            <div class="willem__growing-image-wrap">
+                                <img class="willem__cover-image-extra is--1" src="food_1.png" loading="eager" alt="Gourmet Burger 1">
+                                <img class="willem__cover-image-extra is--2" src="burger_1.jpg" loading="eager" alt="Gourmet Burger 2">
+                                <img class="willem__cover-image-extra is--3" src="burger_2.jpg" loading="eager" alt="Gourmet Burger 3">
+                                <img class="willem__cover-image" src="imagenes/Burger_joint_exterior_at_night_202608051722.jpeg" loading="eager" alt="Brass Burger Facade">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="willem__h1-end">
+                    <span class="willem__letter">B</span>
+                    <span class="willem__letter">U</span>
+                    <span class="willem__letter">R</span>
+                    <span class="willem__letter">G</span>
+                    <span class="willem__letter">E</span>
+                    <span class="willem__letter">R</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="willem-header__content">
+            <div class="willem-header__top">
+                <nav class="willen-nav">
+                    <div class="willem-nav__start">
+                        <span class="willem-nav__link">BRASS BURGER @</span>
+                    </div>
+                    <div class="willem-nav__end">
+                        <div class="willem-nav__links">
+                            <span class="willem-nav__link">Menú,</span>
+                            <span class="willem-nav__link">Reservas,</span>
+                            <span class="willem-nav__link">Locales</span>
+                        </div>
+                        <div class="willem-nav__cta">
+                            <span class="willem-nav__link">Contacto</span>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+
+            <div class="willem-header__bottom">
+                <div class="willem__h1">
+                    <span class="willem__letter-white">B</span>
+                    <span class="willem__letter-white">R</span>
+                    <span class="willem__letter-white">A</span>
+                    <span class="willem__letter-white">S</span>
+                    <span class="willem__letter-white">S</span>
+                    <span class="willem__letter-white is--space"> </span>
+                    <span class="willem__letter-white">B</span>
+                    <span class="willem__letter-white">U</span>
+                    <span class="willem__letter-white">R</span>
+                    <span class="willem__letter-white">G</span>
+                    <span class="willem__letter-white">E</span>
+                    <span class="willem__letter-white">R</span>
+                </div>
+                <p class="osmo-credits__p">Nuestro Menú Interactivo 3D</p>
+            </div>
+        </div>
+    </section>
+
+    <main id="menu-feed" class="menu-container">
+        <!-- Loader -->
+        <div id="app-loader" class="loader-container">
+            <div class="loader-spinner"></div>
+            <p>Cargando menú...</p>
+        </div>
+        
+        <!-- Error Message -->
+        <div id="error-message" class="error-container" style="display: none;">
+            <p>Lo sentimos, no pudimos cargar el menú.</p>
+            <button onclick="window.location.reload()" class="btn-primary" style="margin-top: 1rem;">Reintentar</button>
+        </div>
+
+        <!-- Cards will be injected here dynamically -->
+    </main>
+
+    <footer class="app-footer">
+        <p>Desarrollado por <span class="brand">@MalbecyCode</span></p>
+    </footer>
+
+    <!-- Global Model Viewer (Hidden, used to trigger AR) -->
+    <div id="ar-container">
+        <model-viewer 
+            id="global-model-viewer" 
+            ar 
+            ar-modes="scene-viewer quick-look" 
+            camera-controls 
+            auto-rotate
+            loading="eager"
+            shadow-intensity="1"
+            style="width: 1px; height: 1px; position: absolute; top: 0; left: 0; opacity: 0; pointer-events: none; z-index: -1;">
+        </model-viewer>
+    </div>
+
+    <!-- PapaParse -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+    <!-- Application Script -->
+    <script src="app.js"></script>
+</body>
+</html>
