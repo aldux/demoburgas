@@ -1,4 +1,4 @@
-const CSV_URL = "https://docs.google.com/spreadsheets/d/1qpz_GZVy8KeQ3Nhc6k_HbTg1acLDFpznGsntuWPC1ys/export?format=csv&t=" + new Date().getTime();
+const CSV_URL = "https://docs.google.com/spreadsheets/d/1E-WGA8NSZV5uy6d2w8tzzFUKAKAmJ-OcjlzhbBEGCXM/export?format=csv&t=" + new Date().getTime();
 
 document.addEventListener("DOMContentLoaded", () => {
     initWillemLoadingAnimation();
