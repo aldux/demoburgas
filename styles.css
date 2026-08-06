@@ -324,7 +324,7 @@ main:has(.willem-header.is--loading) {
 .willem__h1 {
   white-space: nowrap;
   justify-content: center;
-  font-size: 12.5em;
+  font-size: 7.5vw;
   font-weight: 500;
   line-height: .75;
   display: flex;
@@ -506,7 +506,7 @@ main:has(.willem-header.is--loading) {
 
 @media screen and (max-width: 991px) {
   .willem__h1 {
-    font-size: 9em;
+    font-size: 9.5vw;
   }
 
   .willem-nav__links {
@@ -518,7 +518,7 @@ main:has(.willem-header.is--loading) {
 
 @media screen and (max-width: 767px) {
   .willem__h1 {
-    font-size: 5.5em;
+    font-size: 11.5vw;
   }
 
   .willem-nav__start {
