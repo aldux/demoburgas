@@ -1,10 +1,10 @@
 :root {
     --primary-color: #ff5e3a;
     --primary-hover: #e04a29;
-    --bg-color: #f7f9fc;
-    --card-bg: #ffffff;
-    --text-main: #1d1d1f;
-    --text-secondary: #6e6e73;
+    --bg-color: #080808;
+    --card-bg: #141414;
+    --text-main: #f5f5f7;
+    --text-secondary: #a1a1a6;
     --border-radius: 20px;
     --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
     --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.1);
@@ -29,7 +29,7 @@ body {
 .app-header {
     text-align: center;
     padding: 2rem 1.5rem 1rem;
-    background: linear-gradient(135deg, rgba(255,255,255,1) 0%, rgba(247,249,252,1) 100%);
+    background: transparent;
 }
 
 .app-header h1 {
@@ -274,7 +274,7 @@ body {
     text-align: center;
     padding: 3rem;
     grid-column: 1 / -1;
-    background-color: #fff0f0;
+    background-color: rgba(211, 47, 47, 0.1);
     border-radius: var(--border-radius);
     color: #d32f2f;
     font-weight: 600;
@@ -307,7 +307,7 @@ main:has(.willem-header.is--loading) {
 }
 
 .willem-loader {
-  color: #201d1d;
+  color: #f5f5f7;
   justify-content: center;
   align-items: center;
   width: 100%;
@@ -317,7 +317,7 @@ main:has(.willem-header.is--loading) {
   top: 0;
   left: 0;
   overflow: hidden;
-  background-color: #f4f4f4; /* Added to cover background during load */
+  background-color: #080808; /* Updated for dark theme */
   z-index: 50;
 }
 

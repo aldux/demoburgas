@@ -2,6 +2,7 @@ const CSV_URL = "https://docs.google.com/spreadsheets/d/1E-WGA8NSZV5uy6d2w8tzzFU
 
 document.addEventListener("DOMContentLoaded", () => {
     initWillemLoadingAnimation();
+    initFireSparks();
     loadMenuData();
 });
 
@@ -250,4 +251,62 @@ function initWillemLoadingAnimation() {
       stagger: 0.1
     }, "<");
   }
+}
+
+// Animación de chispitas de fuego
+function initFireSparks() {
+    const canvas = document.getElementById("fireCanvas");
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d");
+    
+    let w = canvas.width = window.innerWidth;
+    let h = canvas.height = window.innerHeight;
+    
+    window.addEventListener("resize", () => {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    });
+
+    const particles = [];
+    for (let i = 0; i < 75; i++) {
+        particles.push(new Particle());
+    }
+
+    function Particle() {
+        this.x = Math.random() * w;
+        this.y = Math.random() * h;
+        this.size = Math.random() * 2.5 + 0.5;
+        this.speedY = Math.random() * 2 + 1;
+        this.speedX = (Math.random() - 0.5) * 1.5;
+        this.life = Math.random() * 0.5 + 0.3;
+    }
+
+    Particle.prototype.update = function() {
+        this.y -= this.speedY;
+        this.x += this.speedX;
+        this.size -= 0.015;
+        if (this.size <= 0.1 || this.y < 0) {
+            this.x = Math.random() * w;
+            this.y = h + 10;
+            this.size = Math.random() * 2.5 + 0.5;
+            this.speedY = Math.random() * 2 + 1;
+        }
+    }
+
+    Particle.prototype.draw = function() {
+        ctx.fillStyle = `rgba(255, ${Math.random() * 100 + 80}, 0, ${this.life})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach(p => {
+            p.update();
+            p.draw();
+        });
+        requestAnimationFrame(animate);
+    }
+    animate();
 }
