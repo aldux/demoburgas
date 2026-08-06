@@ -220,15 +220,15 @@ function initWillemLoadingAnimation() {
 
   if (growingImage.length) {
     tl.to(growingImage, {
-      width: "100vw",
-      height: "100dvh",
+      width: "102vw",
+      height: "102dvh",
       duration: 2
     }, "< 1.25");
   }
 
   if (box.length) {
     tl.to(box, {
-      width: "110vw",
+      width: "115vw",
       duration: 2
     }, "<");
   }
